@@ -30,13 +30,13 @@
 
             <div class="form-group col-2">
                 <select id="tagsSelector" class="form-control">
-                    <option selected>Totes</option>
-                    <option>Qualcunes</option>
+                    <option selected value="all">Totes</option>
+                    <option value="any">Qualcunes</option>
                 </select>
             </div>
 
             <div class="form-group col-2">
-                <button onclick="mostrarImatges()" type="submit" class="btn btn-primary form-control" id="hola">
+                <button type="submit" class="btn btn-primary form-control" id="showImagesButton">
                     Submit
                 </button>
             </div>
@@ -65,22 +65,12 @@
                     Link
                 </th>
             </tr>
-            <tr class="row resultRow">
-                <td>afaf</td>
-            </tr>
         </table>
     </div>
 
-    <script>
-        function mostrarImatges(){
-            $(".resultRow").html("")
-
-        }
-    </script>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
@@ -88,6 +78,22 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+    <script>
+        $("#showImagesButton").click(function () {
+            let url = 'https://api.flickr.com/services/feeds/photos_public.gne?format=json&jsoncallback=?&';
+            url += "tags=" + $("#tags").val().split(" ").join() + "&";
+            url += "tagmode=" + $("#tagsSelector").val();
+            console.log(url);
+            $.getJSON(url, function(data){
+                dibujarTabla(data);
+            } );
+            console.log(json)
+        })
+
+        function dibujarTabla(data){
+        }
+
+    </script>
 </body>
 
 </html>
