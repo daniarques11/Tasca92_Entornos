@@ -97,7 +97,12 @@
                     let media = "<td id='media'><img src='" + data.items[item].media.m + "' style='width: 10vh;'></img></td>";
                     let date = "<td id='date'>" + data.items[item].date_taken + "</td>";
                     let author = "<td id='author'>" + data.items[item].author + "</td>";
-                    let tags = "<td id='tags'>" + data.items[item].tags + "</td>";
+                    let tags = "<td id='tags'>";
+                    let tagList = data.items[item].tags.split(" ")
+                    for (let tagNum in tagList){
+                        tags += '<span class="badge badge-primary mr-1">'+ tagList[tagNum] + '</span>';
+                    }
+                    tags += "</td>";
                     let link = "<td id='link'> <a href='" + data.items[item].link + "' class='btn btn-secondary btn-lg active' role='button' aria-pressed='true'>Veure</a></td>";
                     taula.append("<tr>" + titol + media + date + author + tags + link + "</tr>");
                 }
