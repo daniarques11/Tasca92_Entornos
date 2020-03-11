@@ -13,6 +13,7 @@
 </head>
 
 <body>
+    <!-- Capçalera -->
     <nav class="navbar navbar-light bg-light p-5">
         <span class="navbar-brand mb-0 font-weight-bold">
             <h1 class="display-4">
@@ -21,7 +22,7 @@
         </span>
     </nav>
 
-
+    <!-- Formulari -->
     <div class="container-fluid">
         <div class="form-row m-3">
             <div class="form-group col-4">
@@ -43,6 +44,7 @@
         </div>
     </div>
 
+    <!-- Taula -->
     <div class="container-fluid m-3">
         <table class="table" id="resultTable">
             <thead>
@@ -84,21 +86,25 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+
     <script>
         $("#showImagesButton").click(function () {
+            // Construir url de la petició
             let url = 'https://api.flickr.com/services/feeds/photos_public.gne?format=json&jsoncallback=?&';
             url += "tags=" + $("#tags").val().split(" ").join() + "&";
             url += "tagmode=" + $("#tagsSelector").val();
+            // Fer la petició
             $.getJSON(url, function (data){
                 let taula = $("#files");
                 taula.html("");
+                // Redibuixar la taula d'items
                 for (let item in data.items){
                     let titol = "<th scope='row' id='title'>" + data.items[item].title + "</td>";
                     let media = "<td id='media'><img src='" + data.items[item].media.m + "' style='width: 10vh;'></img></td>";
                     let date = "<td id='date'>" + data.items[item].date_taken + "</td>";
                     let author = "<td id='author'>" + data.items[item].author + "</td>";
-                    let tags = "<td id='tags'>";
                     let tagList = data.items[item].tags.split(" ")
+                    let tags = "<td id='tags'>";
                     for (let tagNum in tagList){
                         tags += '<span class="badge badge-primary mr-1">'+ tagList[tagNum] + '</span>';
                     }
