@@ -74,6 +74,7 @@ Tasca 9.2 - Cerca de fotografies amb AJAX a Flickr en format JSON -->
                     </th>
                 </tr>
             </thead>
+
             <tbody id="files">
 
             </tbody>
@@ -96,6 +97,7 @@ Tasca 9.2 - Cerca de fotografies amb AJAX a Flickr en format JSON -->
             let url = 'https://api.flickr.com/services/feeds/photos_public.gne?format=json&jsoncallback=?&';
             url += "tags=" + $("#tags").val().split(" ").join() + "&";
             url += "tagmode=" + $("#tagsSelector").val();
+
             // Fer la petició
             $.getJSON(url, function (data) {
                 // Redibuixar la taula d'items
@@ -113,6 +115,7 @@ Tasca 9.2 - Cerca de fotografies amb AJAX a Flickr en format JSON -->
                     }
                     tags += "</td>";
                     let link = "<td id='link'> <a href='" + data.items[item].link + "' class='btn btn-secondary btn-lg active' role='button' aria-pressed='true'>Veure</a></td>";
+                    
                     taula.append("<tr>" + titol + media + date + author + tags + link + "</tr>");
                 }
             });
