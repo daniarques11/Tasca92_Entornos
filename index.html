@@ -77,14 +77,13 @@ Tasca 9.2 - Cerca de fotografies amb AJAX a Flickr en format JSON -->
             <tbody id="files">
                 <tr>
                 </tr>
-            </tbody>    
+            </tbody>
         </table>
     </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
@@ -99,19 +98,19 @@ Tasca 9.2 - Cerca de fotografies amb AJAX a Flickr en format JSON -->
             url += "tags=" + $("#tags").val().split(" ").join() + "&";
             url += "tagmode=" + $("#tagsSelector").val();
             // Fer la petició
-            $.getJSON(url, function (data){
+            $.getJSON(url, function (data) {
+                // Redibuixar la taula d'items
                 let taula = $("#files");
                 taula.html("");
-                // Redibuixar la taula d'items
-                for (let item in data.items){
+                for (let item in data.items) {
                     let titol = "<th scope='row' id='title'>" + data.items[item].title + "</td>";
                     let media = "<td id='media'><img src='" + data.items[item].media.m + "' style='width: 10vh;'></img></td>";
                     let date = "<td id='date'>" + data.items[item].date_taken + "</td>";
                     let author = "<td id='author'>" + data.items[item].author + "</td>";
                     let tagList = data.items[item].tags.split(" ")
                     let tags = "<td id='tags'>";
-                    for (let tagNum in tagList){
-                        tags += '<span class="badge badge-primary mr-1">'+ tagList[tagNum] + '</span>';
+                    for (let tagNum in tagList) {
+                        tags += '<span class="badge badge-primary mr-1">' + tagList[tagNum] + '</span>';
                     }
                     tags += "</td>";
                     let link = "<td id='link'> <a href='" + data.items[item].link + "' class='btn btn-secondary btn-lg active' role='button' aria-pressed='true'>Veure</a></td>";
