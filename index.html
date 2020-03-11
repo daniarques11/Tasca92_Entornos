@@ -89,7 +89,6 @@
             let url = 'https://api.flickr.com/services/feeds/photos_public.gne?format=json&jsoncallback=?&';
             url += "tags=" + $("#tags").val().split(" ").join() + "&";
             url += "tagmode=" + $("#tagsSelector").val();
-            console.log(url);
             $.getJSON(url, function (data){
                 let taula = $("#files");
                 taula.html("");
