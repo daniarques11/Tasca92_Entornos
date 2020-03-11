@@ -46,23 +46,23 @@
     <div class="container-fluid m-3">
         <table class="table" id="resultTable">
             <thead>
-                <tr class="row" id="header">
-                    <th class="col-1">
+                <tr id="header">
+                    <th scope="col">
                         Títol
                     </th>
-                    <th class="col-3">
+                    <th scope="col">
                         Imatge
                     </th>
-                    <th class="col-1">
+                    <th scope="col">
                         Data
                     </th>
-                    <th class="col-2">
+                    <th scope="col">
                         Autor
                     </th>
-                    <th class="col-3">
+                    <th scope="col">
                         Etiquetes
                     </th>
-                    <th class="col-2">
+                    <th scope="col">
                         Link
                     </th>
                 </tr>
@@ -97,13 +97,13 @@
                 console.log(data);
                 for (let item in data.items){
                     console.log(data.items[item])
-                    let titol = "<td id='title'>" + data.items[item].title + "</td>";
+                    let titol = "<th scope='row' id='title'>" + data.items[item].title + "</td>";
                     let media = "<td id='media'><img src='" + data.items[item].media.m + "' style='width: 10vh;'></img></td>";
                     let date = "<td id='date'>" + data.items[item].date_taken + "</td>";
                     let author = "<td id='author'>" + data.items[item].author + "</td>";
                     let tags = "<td id='tags'>" + data.items[item].tags + "</td>";
                     let link = "<td id='link'> <a href='" + data.items[item].link + "'>Link</a></td>";
-                    taula.append("<tr class='row'>" + titol + media + date + author + tags + link + "</tr>");
+                    taula.append("<tr>" + titol + media + date + author + tags + link + "</tr>");
                 }
             });
         });
