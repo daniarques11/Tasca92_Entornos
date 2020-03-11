@@ -69,7 +69,6 @@
             </thead>
             <tbody id="files">
                 <tr>
-                    <td> qeofjqepofj</td>
                 </tr>
             </tbody>    
         </table>
@@ -94,9 +93,7 @@
             $.getJSON(url, function (data){
                 let taula = $("#files");
                 taula.html("");
-                console.log(data);
                 for (let item in data.items){
-                    console.log(data.items[item])
                     let titol = "<th scope='row' id='title'>" + data.items[item].title + "</td>";
                     let media = "<td id='media'><img src='" + data.items[item].media.m + "' style='width: 10vh;'></img></td>";
                     let date = "<td id='date'>" + data.items[item].date_taken + "</td>";
