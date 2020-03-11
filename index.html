@@ -96,14 +96,14 @@
                 taula.html("");
                 console.log(data);
                 for (let item in data.items){
-                    console.log(item)
-                    let titol = "<td>" + item.title + "</td>";
-                    let media = "<td>" + item.media + "</td>";
-                    let date = "<td>" + item.date_taken + "</td>";
-                    let author = "<td>" + item.author + "</td>";
-                    let tags = "<td>" + item.tags + "</td>";
-                    let link = "<td>" + item.link + "</td>";
-                    taula.html("<tr>" + titol + media + date + author + tags + link + "</tr>");
+                    console.log(data.items[item])
+                    let titol = "<td id='title'>" + data.items[item].title + "</td>";
+                    let media = "<td id='media'><img src='" + data.items[item].media.m + "' style='width: 10vh;'></img></td>";
+                    let date = "<td id='date'>" + data.items[item].date_taken + "</td>";
+                    let author = "<td id='author'>" + data.items[item].author + "</td>";
+                    let tags = "<td id='tags'>" + data.items[item].tags + "</td>";
+                    let link = "<td id='link'> <a href='" + data.items[item].link + "'>Link</a></td>";
+                    taula.append("<tr class='row'>" + titol + media + date + author + tags + link + "</tr>");
                 }
             });
         });
