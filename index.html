@@ -45,26 +45,33 @@
 
     <div class="container-fluid m-3">
         <table class="table" id="resultTable">
-            <tr class="row">
-                <th class="col-1">
-                    Títol
-                </th>
-                <th class="col-3">
-                    Imatge
-                </th>
-                <th class="col-1">
-                    Data
-                </th>
-                <th class="col-2">
-                    Autor
-                </th>
-                <th class="col-3">
-                    Etiquetes
-                </th>
-                <th class="col-2">
-                    Link
-                </th>
-            </tr>
+            <thead>
+                <tr class="row" id="header">
+                    <th class="col-1">
+                        Títol
+                    </th>
+                    <th class="col-3">
+                        Imatge
+                    </th>
+                    <th class="col-1">
+                        Data
+                    </th>
+                    <th class="col-2">
+                        Autor
+                    </th>
+                    <th class="col-3">
+                        Etiquetes
+                    </th>
+                    <th class="col-2">
+                        Link
+                    </th>
+                </tr>
+            </thead>
+            <tbody id="files">
+                <tr>
+                    <td> qeofjqepofj</td>
+                </tr>
+            </tbody>    
         </table>
     </div>
 
@@ -84,14 +91,23 @@
             url += "tags=" + $("#tags").val().split(" ").join() + "&";
             url += "tagmode=" + $("#tagsSelector").val();
             console.log(url);
-            $.getJSON(url, function(data){
-                dibujarTabla(data);
-            } );
-            console.log(json)
-        })
+            $.getJSON(url, function (data){
+                let taula = $("#files");
+                taula.html("");
+                console.log(data);
+                for (let item in data.items){
+                    console.log(item)
+                    let titol = "<td>" + item.title + "</td>";
+                    let media = "<td>" + item.media + "</td>";
+                    let date = "<td>" + item.date_taken + "</td>";
+                    let author = "<td>" + item.author + "</td>";
+                    let tags = "<td>" + item.tags + "</td>";
+                    let link = "<td>" + item.link + "</td>";
+                    taula.html("<tr>" + titol + media + date + author + tags + link + "</tr>");
+                }
+            });
+        });
 
-        function dibujarTabla(data){
-        }
 
     </script>
 </body>
