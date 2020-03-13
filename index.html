@@ -18,67 +18,69 @@ Tasca 9.2 - Cerca de fotografies amb AJAX a Flickr en format JSON -->
 </head>
 
 <body>
-    <!-- Capçalera -->
-    <nav class="navbar navbar-light bg-light p-5">
-        <span class="navbar-brand mb-0 font-weight-bold">
-            <h1 class="display-4">
-                Cercador d'imatges a <span class="text-danger font-weight-bold">Flickr</span>
-            </h1>
-        </span>
-    </nav>
+    <div class="container-fluid" style="width:95%">
+        <!-- Capçalera -->
+        <nav class="navbar navbar-light bg-light">
+            <span class="navbar-brand mb-0 font-weight-bold">
+                <h1 class="display-4">
+                    Cercador d'imatges a <span class="text-danger font-weight-bold">Flickr</span>
+                </h1>
+            </span>
+        </nav>
 
-    <!-- Formulari -->
-    <div class="container-fluid">
-        <div class="form-row m-3">
-            <div class="form-group col-4">
-                <input type="text" class="form-control" id="tags" placeholder="Escriu les tags"></input>
-            </div>
+        <!-- Formulari -->
+        <div class="container-fluid">
+            <div class="form-row m-3">
+                <div class="form-group col-4">
+                    <input type="text" class="form-control" id="tags" placeholder="Escriu les tags"></input>
+                </div>
 
-            <div class="form-group col-2">
-                <select id="tagsSelector" class="form-control">
-                    <option selected value="all">Totes les etiquetes</option>
-                    <option value="any">Qualcunes</option>
-                </select>
-            </div>
+                <div class="form-group col-2">
+                    <select id="tagsSelector" class="form-control">
+                        <option selected value="all">Totes les etiquetes</option>
+                        <option value="any">Qualcunes</option>
+                    </select>
+                </div>
 
-            <div class="form-group col-2">
-                <button type="submit" class="btn btn-primary form-control" id="showImagesButton">
-                    Submit
-                </button>
+                <div class="form-group col-2">
+                    <button type="submit" class="btn btn-primary form-control" id="showImagesButton">
+                        Submit
+                    </button>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- Taula -->
-    <div class="container-fluid m-3">
-        <table class="table" id="resultTable">
-            <thead>
-                <tr id="header">
-                    <th scope="col">
-                        Títol
-                    </th>
-                    <th scope="col">
-                        Imatge
-                    </th>
-                    <th scope="col">
-                        Data
-                    </th>
-                    <th scope="col">
-                        Autor
-                    </th>
-                    <th scope="col">
-                        Etiquetes
-                    </th>
-                    <th scope="col">
-                        Link
-                    </th>
-                </tr>
-            </thead>
+        <!-- Taula -->
+        <div class="container-fluid m-3">
+            <table class="table" id="resultTable">
+                <thead>
+                    <tr id="header">
+                        <th scope="col">
+                            Títol
+                        </th>
+                        <th scope="col">
+                            Imatge
+                        </th>
+                        <th scope="col">
+                            Data
+                        </th>
+                        <th scope="col">
+                            Autor
+                        </th>
+                        <th scope="col">
+                            Etiquetes
+                        </th>
+                        <th scope="col">
+                            Link
+                        </th>
+                    </tr>
+                </thead>
 
-            <tbody id="files">
+                <tbody id="files">
 
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <!-- Optional JavaScript -->
@@ -116,7 +118,7 @@ Tasca 9.2 - Cerca de fotografies amb AJAX a Flickr en format JSON -->
                     }
                     tags += "</td>";
                     let link = "<td id='link'> <a href='" + data.items[item].link + "' class='btn btn-secondary btn-lg active' role='button' aria-pressed='true'>Veure</a></td>";
-                    
+
                     taula.append("<tr>" + titol + media + date + author + tags + link + "</tr>");
                 }
             });
