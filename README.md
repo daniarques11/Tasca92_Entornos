@@ -6,3 +6,5 @@
 Objectivo: realizar una explicación del proyecto y de la publicación de la web en Github Pages
 
 **Práctica publicada a Github Pages: https://daniarques11.github.io/Tasca92_Entornos/**
+
+**Práctica original: https://github.com/cifpfbmoll/ArquesToroDaniel_Tasca92**
