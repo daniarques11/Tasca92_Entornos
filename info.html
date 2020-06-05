@@ -1,0 +1,85 @@
+<!-- Autor: Daniel Arqués Toro
+1r DAW Dual CIFP Francesc de Borja Moll 2019-2020
+Modificación de la web para Entornos de Desarrollo -->
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Flickr Search Info</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container-fluid" style="width:95%">
+        <!-- Capçalera -->
+        <nav class="navbar navbar-light bg-light">
+            <span class="navbar-brand mb-0 font-weight-bold">
+                <h1 class="display-4">
+                    Tasca 9.2. Cerca de fotografies amb AJAX a Flickr en format JSON
+                </h1>
+            </span>
+        </nav>
+
+        <!-- Formulari -->
+        <div class="container-fluid">
+            <div class="form-row m-3">
+                <div class="form-group col-4">
+                    <input type="text" class="form-control" id="tags" placeholder="Escriu les tags"></input>
+                </div>
+
+                <div class="form-group col-2">
+                    <select id="tagsSelector" class="form-control">
+                        <option selected value="all">Totes les etiquetes</option>
+                        <option value="any">Qualcunes</option>
+                    </select>
+                </div>
+
+                <div class="form-group col-2">
+                    <button type="submit" class="btn btn-primary form-control" id="showImagesButton">
+                        Submit
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <h2>
+                Objetivo de la práctica
+            </h2>
+            <div>
+                El objetivo de esta práctica es realizar una página web que muestre fotografías de Flickr. La información de las fotografías debe mostrarse de manera dinámica y dibujarse en una tabla.
+            </div>
+            <h2>
+                Uso de la aplicación
+            </h2>
+            <div>
+                Las imágenes son buscadas en Flickr según las etiquetas o "tags" introducidas en la barra de búsqueda. Se puede seleccionar búsqueda de fotografías que contengan todas o alguna de las etiquetas.
+            </div>
+            <h2>
+                Explicación técnica
+            </h2>
+            <div>
+                La llamada a la página Flickr se realiza mediante el método getJSON (AJAX) de JQuery. Se modifican los dos parámetros "tags" y "tagmode" para obtener las imágenes con todas o alguna de las "tags" introducidas pr el usuario. <br> Cuando la llamada devuelve el JSON, se recorre la información de las imágenes, dibujando en una tabla de Bootstrap la información (título de la foto, miniatura, fecha, autor, etiquetas y enlace a la imagen original). Cada vez que se hace la consulta, la tabla resultante se redibuja completamente.
+            </div>
+        </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
